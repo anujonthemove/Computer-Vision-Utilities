@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 import gzip
@@ -9,8 +8,6 @@ import os
 import multiprocessing
 from requests import get
 import pickle
-
-
 
 class mnist(object):
     def __init__(self):
@@ -33,10 +30,9 @@ class mnist(object):
     
     def __download_dataset(self, dataset_urls):
         '''
-        The below piece of commented code doesn't work as expected.
         Initially, I wrote this piece of code but got to know that we need
         to do some workaround to be able to use multiprocessing's pool 
-        inside a class. 
+        inside a class. Therefore, the below piece of code doesn't work as expected
         
         # n_cpu = multiprocessing.cpu_count()
         # with multiprocessing.Pool(processes=n_cpu) as pool:
@@ -61,7 +57,7 @@ class mnist(object):
 
         with gzip.open(feature_file_path, 'rb') as feature_file:
             length = len(labels)
-            features = np.frombuffer(feature_file.read(), dtype=np.uint8, offset=16).reshape(length, 784)             .reshape(length, 28, 28, 1)
+            features = np.frombuffer(feature_file.read(), dtype=np.uint8, offset=16).reshape(length, 784).reshape(length, 28, 28, 1)
 
         return features, labels
     
@@ -85,15 +81,10 @@ class mnist(object):
         
         return X_train, y_train, X_test, y_test
     
-    def display_image(self, X):
-        image = X.squeeze()
-        plt.imshow(image, cmap=plt.cm.gray_r)
-
-
-
-if __name__ == '__main__':
-
-	# usage
-	mnist_data = mnist()
-	Xtr, ytr, Xte, yte = mnist_data.load_data()
-	
+    def display_image(self, idx, X_tmp):
+        if X_tmp.shape[1:] != (32, 32, 1):
+            print('Invalid shape image provided')
+        else:
+            image = X_tmp[idx].squeeze()
+            plt.title('Example %d: ' % (idx))
+            plt.imshow(image, cmap=plt.cm.gray_r)
