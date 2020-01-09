@@ -27,7 +27,7 @@ def images_to_videos(path_to_images, video_name, fps):
 
 
 fps = 30
-path_to_images = '/home/anuj/git/personal/github/vision-python-helper-codes/DJI_0892/'
-video_name = 'test.avi'
+path_to_images = '/path/to/images/'
+video_name = '/path/to/output/video.mp4'
 
-files_to_videos(path_to_images, video_name, fps)
+images_to_videos(path_to_images, video_name, fps)
