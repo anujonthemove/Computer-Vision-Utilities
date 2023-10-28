@@ -10,4 +10,4 @@
 
 3. [Chessboard Pattern Generator](chessboard-pattern-generator.ipynb)
 
-4.
+4. [Merge Video Segments](./merge-video-segments/merge-video-segments.ipynb)
