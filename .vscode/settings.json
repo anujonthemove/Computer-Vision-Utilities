@@ -1,0 +1,24 @@
+{
+    "python.analysis.indexing": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.languageServer": "Pylance",
+    // "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    // "[python]": {
+    //     "editor.formatOnSave": true,
+    //     "editor.codeActionsOnSave": {
+    //         "python.sortImports": true,
+    //     },
+    // }
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+    },
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+}
