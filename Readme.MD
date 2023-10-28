@@ -1,6 +1,4 @@
 # Computer Vision Utilities
 
-1. [Print Chessboard](chessboard-pattern.ipynb)
-
-    This is used during camera calibration procedure.
-2. []
+1. [Check OpenCV Fonts](check-opencv-fonts.ipynb)
+    * Check all the available fonts in OpenCV
