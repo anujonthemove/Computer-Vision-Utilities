@@ -57,3 +57,54 @@ class bcolors:
 class TextStyle:
     start = "\033[1m"
     end = "\033[0;0m"
+
+
+def recreate_directory(path):
+    import shutil
+
+    # Remove the existing output directory and its contents if it exists
+    if os.path.exists(path):
+        try:
+            shutil.rmtree(path)
+            print("Removed existing directory:", path)
+        except OSError as e:
+            print("Error: %s - %s." % (e.filename, e.strerror))
+
+    # Create the output directory
+    os.makedirs(path)
+
+
+class CustomVideoCapture:
+    @staticmethod
+    def get_video_capture_object(path):
+        cap = None
+        num_frames = 0
+        fps = 0
+        try:
+            cap = cv2.VideoCapture(path)
+
+            if cap.isOpened():
+                num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+                fps = int(cap.get(cv2.CAP_PROP_FPS))
+
+                if num_frames > 0:
+                    print("==================")
+                    print(f"#Frames: {num_frames}")
+                    print(f"Video FPS: {fps}")
+                    print("==================")
+                    print()
+                else:
+                    print(
+                        "The video file is empty or there was an issue reading the frame count."
+                    )
+                    sys.exit(0)
+            else:
+                print("The video could not be opened.")
+
+        except cv2.error as e:
+            print(f"OpenCV error: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        # finally:
+        # video.release()
+        return cap, num_frames, fps
