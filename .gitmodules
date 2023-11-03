@@ -1,0 +1,3 @@
+[submodule "RTSP-with-OpenCV"]
+	path = RTSP-with-OpenCV
+	url = https://github.com/anujonthemove/RTSP-with-OpenCV.git
