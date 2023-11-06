@@ -1,3 +1,6 @@
 [submodule "RTSP-with-OpenCV"]
 	path = RTSP-with-OpenCV
 	url = https://github.com/anujonthemove/RTSP-with-OpenCV.git
+[submodule "defish-python"]
+	path = defish-python
+	url = https://github.com/anujonthemove/defish-python.git
