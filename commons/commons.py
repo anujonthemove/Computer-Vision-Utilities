@@ -108,3 +108,28 @@ class CustomVideoCapture:
         # finally:
         # video.release()
         return cap, num_frames, fps
+
+    def load_image(image_path):
+        import cv2
+
+        """
+        Read an image.
+
+        Parameters:
+        - image_path (str): The path to the image file.
+
+        Returns:
+        - Image
+        """
+        try:
+            # Read the image
+            image = cv2.imread(image_path)
+
+            if image is None:
+                raise FileNotFoundError(
+                    f"Error: Unable to read the image at '{image_path}'."
+                )
+        except Exception as e:
+            print(f"Error: {e}")
+
+        return image
