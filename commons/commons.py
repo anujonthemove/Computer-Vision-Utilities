@@ -60,6 +60,7 @@ class TextStyle:
 
 
 def recreate_directory(path):
+    import os
     import shutil
 
     # Remove the existing output directory and its contents if it exists
@@ -77,6 +78,10 @@ def recreate_directory(path):
 class CustomVideoCapture:
     @staticmethod
     def get_video_capture_object(path):
+        import sys
+
+        import cv2
+
         cap = None
         num_frames = 0
         fps = 0
